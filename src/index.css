@@ -93,6 +93,16 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   h1,
   h2,
   h3 {
@@ -111,5 +121,9 @@
 
   .lead-text {
     @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  .motion-card {
+    @apply transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:shadow-md motion-reduce:transform-none motion-reduce:hover:shadow-sm;
   }
 }
