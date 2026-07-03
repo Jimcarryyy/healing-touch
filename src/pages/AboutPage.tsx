@@ -73,7 +73,7 @@ const AboutPage = () => {
         <h2 className="section-heading mb-10">How we work</h2>
         <div className="grid gap-6 md:grid-cols-3">
           {values.map((value) => (
-            <Card key={value.title}>
+            <Card key={value.title} className="motion-card">
               <CardHeader>
                 <CardTitle className="font-serif text-lg">{value.title}</CardTitle>
               </CardHeader>

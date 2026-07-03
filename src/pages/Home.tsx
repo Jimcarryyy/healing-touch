@@ -5,6 +5,7 @@ import { services, featuredServiceSlugs } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { Section } from "@/components/layout/Section";
+import { FadeIn } from "@/components/layout/FadeIn";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -22,32 +23,36 @@ const Home = () => {
     <>
       <section className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
-          <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-primary">
-              Independent family practice
-            </p>
-            <h1 className="display-heading mb-6">
-              Care that starts with listening.
-            </h1>
-            <p className="lead-text mb-8">{site.description}</p>
-            <div className="flex flex-wrap gap-3">
-              <Button asChild size="lg">
-                <Link to="/contact">Book a Visit</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/services">View Services</Link>
-              </Button>
+          <FadeIn immediate>
+            <div>
+              <p className="mb-4 text-sm font-medium uppercase tracking-wider text-primary">
+                Independent family practice
+              </p>
+              <h1 className="display-heading mb-6">
+                Care that starts with listening.
+              </h1>
+              <p className="lead-text mb-8">{site.description}</p>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild size="lg">
+                  <Link to="/contact">Book a Visit</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/services">View Services</Link>
+                </Button>
+              </div>
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
-            <img
-              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop"
-              alt="Healing Touch clinic consultation room"
-              className="h-full w-full object-cover"
-              loading="eager"
-            />
-          </div>
+          <FadeIn immediate delay={120}>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
+              <img
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop"
+                alt="Healing Touch clinic consultation room"
+                className="h-full w-full object-cover transition-transform duration-700 ease-smooth motion-reduce:transform-none"
+                loading="eager"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -60,7 +65,7 @@ const Home = () => {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {featuredServices.map((service) => (
-            <Card key={service.slug} className="flex flex-col">
+            <Card key={service.slug} className="motion-card flex flex-col">
               <CardHeader>
                 <CardTitle className="font-serif text-xl">{service.title}</CardTitle>
                 <CardDescription className="text-base leading-relaxed">
@@ -105,7 +110,7 @@ const Home = () => {
           {testimonials.slice(0, 2).map((t) => (
             <blockquote
               key={t.author}
-              className="rounded-lg border border-border bg-card p-6"
+              className="motion-card rounded-lg border border-border bg-card p-6"
             >
               <p className="text-base leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
               <footer className="mt-4 text-sm text-muted-foreground">
@@ -119,7 +124,7 @@ const Home = () => {
       </Section>
 
       <Section variant="muted">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-lg border border-border bg-card p-8 md:flex-row md:items-center">
+        <div className="motion-card flex flex-col items-start justify-between gap-6 rounded-lg border border-border bg-card p-8 md:flex-row md:items-center">
           <div>
             <h2 className="section-heading mb-2">Ready to schedule?</h2>
             <p className="text-muted-foreground">
