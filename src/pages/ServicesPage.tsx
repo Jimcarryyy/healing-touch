@@ -24,7 +24,7 @@ const ServicesPage = () => {
 
       <div className="grid gap-6 md:grid-cols-2">
         {services.map((service) => (
-          <Card key={service.slug} className="flex flex-col">
+          <Card key={service.slug} className="motion-card flex flex-col">
             <CardHeader>
               <CardTitle className="font-serif text-xl">{service.title}</CardTitle>
               <CardDescription className="text-base leading-relaxed">
