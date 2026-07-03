@@ -23,7 +23,7 @@ const TeamPage = () => {
 
       <div className="grid gap-8 sm:grid-cols-2">
         {team.map((member) => (
-          <Card key={member.slug} className="overflow-hidden">
+          <Card key={member.slug} className="motion-card overflow-hidden">
             <div className="aspect-[4/3] overflow-hidden bg-muted">
               <img
                 src={member.image}
